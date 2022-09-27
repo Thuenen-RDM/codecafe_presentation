@@ -25,39 +25,64 @@
          --tirot:#E10019;
          --tiorange:#E17D00;
      }
-     h1.maintitle {
+     .reveal h1.maintitle {
          color: var(--tiblau);
          font-size: 64pt;
      }
-     h2.slidetitle {
+     .reveal h2.slidetitle {
          color: var(--tiblau);
      }
-     li {
+     .reveal li {
          margin-bottom: 15px;
      }
-     /* ol > li {
-        font-size: 30pt;
-        }
-        ol > ul > li {
-        font-size: 28pt;
-        } */
+     .reveal img.logo {
+         margin: 0;
+         background: none;
+         border: none;
+         box-shadow: none;
+         width: 20%;
+         /* width: 35%; */
+         position: fixed;
+         left: 75%;
+         bottom: -20pt
+     }
+
+     .reveal div.titleinfo {
+         margin-top:250px;
+         line-height:1.8;
+     }
+
+     .reveal section div.rightcolumn {
+         width: 900px;
+         height: 1000px;
+         float: right;
+     }
+
+     .reveal section div.leftcolumn {
+         width: 960px;
+         height: 540px;
+         margin-left: 0px;
+         margin-top: 0px;
+     }
 
     </style>
 	</head>
 	<body>
 		<div class="reveal">
 			  <div class="slides">
+            <img class="logo" src="assets/THUENEN_SCREEN_RGB.png"/>
 
 				    <section>
                 <h1 class="maintitle">Git as a general tool for data-management</h1>
-                <div>
-                    Harald von Waldow<br>
+                <div class="titleinfo">
+                    Harald von Waldow <a href="mailto:harald.vonwaldow@thuenen.de">&lt;harald.vonwaldow@thuenen.de&gt;</a><br>
                     First Thünen Code Café<br>
                     2022-09-27
                 </div>
             </section>
 
 				    <section>
+                <img src="assets/git-logo.png" width="300px" style="float:left;margin-top:-200px">
                 <h2 class="slidetitle">What is Git?</h2>
                 <ol>
                     <li >A program for <mark>version-control</mark> in software-development</li>
@@ -73,32 +98,59 @@
                         <li>Everything is stored by an <mark>SHA1-hash</mark>.</li>
                         <li><em>Commits</em>, <em>trees</em> and <em>blobs</em> form a <em>Merkle Tree</em></li>
                     </ul>
-                    
+
                 </ol>
 				    </section>
 
             <section>
-            <h2 class="slidetitle">Version control</h2>
-            <ul>
-                <li>Snapshots whole folders recursively</li>
-                <li>Provides a history</li>
-                <li>Attached matadata: who, what, when</li>
-                <li>Anti-data-loss design</li>
-                <li>Allows for massive non-linear development in <mark><em>branches</em></mark></li>
-                <ul>
-                    <li>Easily see differences between files, branches, commits</li>
-                    <li>Track development through different branches</li>
-                    <li>Sophisticated mechanisms to pick &amp; choose individual changes and sequences of changes</li>
-                </ul>
-            </ul>
+                <h2 class="slidetitle">Version control</h2>
+                <div class="rightcolumn r-stack">
+                    <img class="current-visible" src="assets/old_vcs_over_time.png"  style="width:100%;height:auto;margin-top:20px">
+                    <img class="current-visible" src="assets/git_over_time.png"  style="width:100%;height:auto;margin-bottom:200px">
+
+                    
+                    <img class="fragment current-visible" src="assets/gitlog.png" style="width:100%;height:auto;">
+                </div>
+                <div class="leftcolumn" style="margin-top:60px;">
+                    <ul>
+                        <li>Snapshots whole folders recursively</li>
+                        <li>Provides a history</li>
+                        <li>Attached matadata: who, what, when</li>
+                    </ul>
+                </div>
+
 				    </section>
+            <section>
+                <h2 class="slidetitle">Version control</h2>
+                <div class="rightcolumn r-stack">
+                    <img class="current-visible" src="assets/branches.png"  style="width:100%;height:auto;margin-top:20px">
+                    <img class="current-visible" src="assets/cherrypick.png"  style="width:70%;height:auto;margin-top:450px">
+                </div>
+                <div class="leftcolumn" style="margin-top:60px;">
+                    <ul>
+                        <li><mark>Anti-data-loss</mark> design</li>
+                        <li>Allows for massive non-linear development in <mark><em>branches</em></mark></li>
+                        <li>Easily see <mark>differences</mark> between files, branches, commits</li>
+                        <li><mark>Track development</mark> through different branches</li>
+                        <li>Sophisticated mechanisms to <mark>pick &amp; choose</mark> individual changes and sequences of changes</li>
+                    </ul>
+                </div>
+            </section>
 
             <section>
                 <h2 class="slidetitle">Distributed & decentralized</h2>
+                <div style="margin-top:130px">
+                <div class="rightcolumn" style="width:1200px;">
+                    <img src="assets/distributed_vcs.png" style="width:100%;height:auto;"  >
+                </div>
+                <div class="leftcolumn" style="width:680px;">
                 <ul>
-                    <li>Multiple complete copies of everything</li>
-                    <li>Work offline, e.g. no interruptions with shaky VPN or while travelling</li>
-                    <li>No "owner" of a central repository &#8594; forks are a non-issue</li>
+                    <li><mark>Multiple</mark> complete <mark>copies</mark> of everything</li>
+                    <li><mark>Work offline</mark>, e.g. no interruptions with shaky VPN or while travelling</li>
+                    <li><mark>No "owner"</mark> of a central repository<br>&#8594; forks are a non-issue</li>
+                </ul>
+                </div>
+                </div>
 				    </section>
 
             <section>
@@ -128,21 +180,32 @@
                     <li>Web-interface for Git <strong>plus</strong></li>
                     <ul>
                         <li>Project management (Milestones, Kanban Boards, ...</li>
-                        <li>Collaboration features (Issues, Discussion, Merge Requests, ...</li>
-                        <li>DevOps features (Cont. Integration, Cont. Delivery, ..)</li>
+                        <li>Collaboration features (Issues, Discussion, Merge Requests, ...) &#8594; Florian's presentation</li>
+                        <li>DevOps features (Cont. Integration, Cont. Delivery, ..) &#8594; Winnie's presentation</li>
                     </ul>
                 </ul>
-                <h3>GitLab, Gitea</h3>
+				    </section>
+
+            <section>
+                <h2 class="slidetitle">What is not Git</h2>
+                <h3>GitLab Community Edition, Gitea</h3>
                 <ul>
-                    <li>Open Source products</li>
+                    <li>Open Source products, on-premise installation</li>
+                    <li>GitLab is extremely widespread. Thünen Institute is running 2 instances (<code>git-int</code> and <code>git-dmz</code>)</li>
+                    <li>GitLab is becoming the de-factro standard platform for agile software development.</li>
+                    <li>GiTea has less features, is much more lightweight uses
+                    less ressources and is easier to configure and run.</li>
                 </ul>
 				    </section>
 
             <section>
-
-				    </section>
-
-            <section>
+                <h2 class="slidetitle">Git for other tasks</h2>
+                <ul>
+                    <li>Can be used by any knowledge-worker who produces digital output</li>
+                    <li>E.g. to write articles, books, contracts</li>
+                    <li>E.g. as a backbone of sophisticated RDM-system (<code>Renku</code>)</li>
+                    <li>E.g. to power a distributed password-manager (<code>pass</code>)</li>
+                </ul>
 
 				    </section>
 
