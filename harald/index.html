@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Git as a general tool for data-management</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -12,22 +12,150 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+     :root {
+         --tiblau:#008CD2;
+         --ticyan:#00A0E1;
+         --tiblaugruen:#00AAAA;
+         --tigruen:#00AA82;
+         --tihellgruen:#78BE1E;
+         --tigrau:#37464B;
+         --tibraun:#4B3228;
+         --tidunkelrot:#AF0A19;
+         --tirot:#E10019;
+         --tiorange:#E17D00;
+     }
+     h1.maintitle {
+         color: var(--tiblau);
+         font-size: 64pt;
+     }
+     h2.slidetitle {
+         color: var(--tiblau);
+     }
+     li {
+         margin-bottom: 15px;
+     }
+     /* ol > li {
+        font-size: 30pt;
+        }
+        ol > ul > li {
+        font-size: 28pt;
+        } */
+
+    </style>
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide X</section>
-				<section>Slide 2
-						<aside class="notes">
-						<p>Some notes</p>
-						</aside>
-						<p>Some slide text</p>
-						<aside class="notes">
-						<p>and some more notes</p>
-					</aside>
-				</section>
-			</div>
-		</div>
+			  <div class="slides">
+
+				    <section>
+                <h1 class="maintitle">Git as a general tool for data-management</h1>
+                <div>
+                    Harald von Waldow<br>
+                    First Thünen Code Café<br>
+                    2022-09-27
+                </div>
+            </section>
+
+				    <section>
+                <h2 class="slidetitle">What is Git?</h2>
+                <ol>
+                    <li >A program for <mark>version-control</mark> in software-development</li>
+                    <ul>
+                        <li>Developed in 2005 to manage Linux kernel development (~5e6 LOC at the time)</li>
+                    </ul>
+                    <li>A <mark>distributed</mark>, <mark>decentralized</mark> database</li>
+                    <ul>
+                        <li>Every copy of the database has the full information</li>
+                    </ul>
+                    <li>A <mark>content-addressable</mark> file-system</li>
+                    <ul>
+                        <li>Everything is stored by an <mark>SHA1-hash</mark>.</li>
+                        <li><em>Commits</em>, <em>trees</em> and <em>blobs</em> form a <em>Merkle Tree</em></li>
+                    </ul>
+                    
+                </ol>
+				    </section>
+
+            <section>
+            <h2 class="slidetitle">Version control</h2>
+            <ul>
+                <li>Snapshots whole folders recursively</li>
+                <li>Provides a history</li>
+                <li>Attached matadata: who, what, when</li>
+                <li>Anti-data-loss design</li>
+                <li>Allows for massive non-linear development in <mark><em>branches</em></mark></li>
+                <ul>
+                    <li>Easily see differences between files, branches, commits</li>
+                    <li>Track development through different branches</li>
+                    <li>Sophisticated mechanisms to pick &amp; choose individual changes and sequences of changes</li>
+                </ul>
+            </ul>
+				    </section>
+
+            <section>
+                <h2 class="slidetitle">Distributed & decentralized</h2>
+                <ul>
+                    <li>Multiple complete copies of everything</li>
+                    <li>Work offline, e.g. no interruptions with shaky VPN or while travelling</li>
+                    <li>No "owner" of a central repository &#8594; forks are a non-issue</li>
+				    </section>
+
+            <section>
+                <h2 class="slidetitle">Content-addressable</h2>
+                <ul>
+                    <li>Diffing across a large number of files & directories is <strong>fast</strong>.</li>
+                    <li>Changes in everything (files, tree, commits) is detected reliably and automatically.</li>
+                    <li>Identical blobs are only stored once</li>
+                </ul>
+				    </section>
+
+            <section>
+                <h2 class="slidetitle">What does it do to you?</h2>
+                <ul>
+                    <li>Data safety</li>
+                    <li>Peace of mind, fosters creativity</li>
+                    <li>Provides a practical beat for your work (commit-messages)</li>
+                    <li>Ease of sharing (<code>clone, push, pull</code>)</li>
+                </ul>
+				    </section>
+
+            <section>
+                <h2 class="slidetitle">What is not Git</h2>
+                <h3>GitHub.com, GitLab.com</h3>
+                <ul>
+                    <li>Commercial SaaS offers</li>
+                    <li>Web-interface for Git <strong>plus</strong></li>
+                    <ul>
+                        <li>Project management (Milestones, Kanban Boards, ...</li>
+                        <li>Collaboration features (Issues, Discussion, Merge Requests, ...</li>
+                        <li>DevOps features (Cont. Integration, Cont. Delivery, ..)</li>
+                    </ul>
+                </ul>
+                <h3>GitLab, Gitea</h3>
+                <ul>
+                    <li>Open Source products</li>
+                </ul>
+				    </section>
+
+            <section>
+
+				    </section>
+
+            <section>
+
+				    </section>
+
+            <section>
+
+				    </section>
+
+            <section>
+
+				    </section>
+
+			</div> <!-- -end slides -->
+		</div> <!-- - end reveal -->
 
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
@@ -38,7 +166,9 @@
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
-				hash: true,
+				  hash: true,
+          width: 1920,
+          height: 1080,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
